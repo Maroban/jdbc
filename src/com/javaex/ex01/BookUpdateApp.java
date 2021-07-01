@@ -22,11 +22,11 @@ public class BookUpdateApp {
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 
 			// 3. SQL문 준비 / 바인딩 / 실행
-			String update = "UPDATE book SET title = ? WHERE author_id = ?";
+			String update = "UPDATE book SET title = ? WHERE book_id = ?";
 
 			pstmt = conn.prepareStatement(update);
 			pstmt.setString(1, "짜릿해 늘 새로워..");
-			pstmt.setString(2, "7");
+			pstmt.setString(2, "8");
 
 			int count = pstmt.executeUpdate();
 
