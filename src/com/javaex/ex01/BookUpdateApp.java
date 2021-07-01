@@ -26,13 +26,12 @@ public class BookUpdateApp {
 
 			pstmt = conn.prepareStatement(update);
 			pstmt.setString(1, "짜릿해 늘 새로워..");
-			pstmt.setString(2, "8");
+			pstmt.setInt(2, 9);
 
 			int count = pstmt.executeUpdate();
 
-			System.out.println(count + " 건이 저장되었습니다.");
-
 			// 4.결과처리
+			System.out.println(count + " 건이 수정되었습니다.");
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);

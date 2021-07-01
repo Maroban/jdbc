@@ -29,14 +29,14 @@ public class AuthorUpdateApp {
 			pstmt = conn.prepareStatement(update);
 			pstmt.setString(1, "정우성");
 			pstmt.setString(2, "충청북도 청주");
-			pstmt.setString(3, "7");
+			pstmt.setInt(3, 7);
 
 			//// SQL문 실행 ////
 			int count = pstmt.executeUpdate();
-			
-			System.out.println(count + " 건이 저장되었습니다.");
 
 			// 4.결과처리
+			System.out.println(count + " 건이 수정되었습니다.");
+
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
 		} catch (SQLException e) {
