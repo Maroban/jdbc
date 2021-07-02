@@ -29,7 +29,7 @@ public class BookAuthorSelectApp {
 			select += "     b.book_id, ";
 			select += "     b.title, ";
 			select += "     b.pubs, ";
-			select += "     b.pub_date, ";
+			select += "     to_char(b.pub_date, 'YYYY-MM-DD'), ";
 			select += "     b.author_id, ";
 			select += "     a.author_name, ";
 			select += "     a.author_desc ";
