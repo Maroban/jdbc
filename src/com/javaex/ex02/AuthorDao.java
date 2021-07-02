@@ -143,7 +143,7 @@ public class AuthorDao {
 	}
 
 	// 작가 수정하기
-	public int authorUpdate(int authorId, String authorName, String authorDecs) {
+	public int authorUpdate(int authorId, String authorName, String authorDesc) {
 
 		int count = -1;
 
@@ -170,7 +170,7 @@ public class AuthorDao {
 
 			pstmt = conn.prepareStatement(update);
 			pstmt.setString(1, authorName);
-			pstmt.setString(2, authorDecs);
+			pstmt.setString(2, authorDesc);
 			pstmt.setInt(3, authorId);
 
 			count = pstmt.executeUpdate();
@@ -203,7 +203,7 @@ public class AuthorDao {
 	}
 
 	// 작가 등록하기
-	public int authorInsert(String authorName, String authorDecs) {
+	public int authorInsert(String authorName, String authorDesc) {
 
 		int count = -1;
 
@@ -229,7 +229,7 @@ public class AuthorDao {
 
 			pstmt = conn.prepareStatement(insert);
 			pstmt.setString(1, authorName); // 받은 값 넣기
-			pstmt.setString(2, authorDecs); // 받은 값 넣기
+			pstmt.setString(2, authorDesc); // 받은 값 넣기
 
 			count = pstmt.executeUpdate();
 
