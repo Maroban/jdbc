@@ -22,8 +22,15 @@ public class AuthorUpdateApp {
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 
 			// 3. SQL문 준비 / 바인딩 / 실행
+			
 			//// SQL문 준비 ////
-			String update = "UPDATE author SET author_name = ?, author_desc = ? WHERE author_id = ?";
+			String update = "";
+			update += " UPDATE author "; 
+			update += " SET "; 
+			update += "     author_name = ?, "; 
+			update += "     author_desc = ? "; 
+			update += " WHERE "; 
+			update += "     author_id = ? "; 
 
 			//// SQL문 바인딩 ////
 			pstmt = conn.prepareStatement(update);

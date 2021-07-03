@@ -23,11 +23,14 @@ public class AuthorDeleteApp {
 
 			// 3. SQL문 준비 / 바인딩 / 실행
 			//// SQL문 준비 ////
-			String delete = "DELETE FROM author WHERE author_id = ?";
-
+			String delete = "";
+			delete += " DELETE FROM author ";
+			delete += " WHERE ";
+			delete += "     author_id = ? ";
+			
 			//// SQL문 바인딩 ////
 			pstmt = conn.prepareStatement(delete);
-			pstmt.setInt(1, 7);
+			pstmt.setInt(1, 8);
 
 			//// SQL문 실행 ////
 			int count = pstmt.executeUpdate();

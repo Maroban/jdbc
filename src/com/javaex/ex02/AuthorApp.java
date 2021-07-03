@@ -6,8 +6,9 @@ public class AuthorApp {
 
 	public static void main(String[] args) {
 
-		AuthorDao authorDao = new AuthorDao();
-		List<AuthorVo> authorList;
+		AuthorDao authorDao = new AuthorDao();  // AuthorDao 생성자 호출
+		
+		List<AuthorVo> authorList;  // AuthorList 생성
 
 		// DB에서 데이터 가져오기
 		authorList = authorDao.getAuthorList(); // DB에서 작가 정보 리스트를 가져온다.
@@ -70,7 +71,7 @@ public class AuthorApp {
 		
 		
 		// 작가 수정
-		int uCount = authorDao.authorUpdate(7, "이정재", "내가 왕이될 상인가"); // 3번 데이터 수정
+		int uCount = authorDao.authorUpdate(10, "이정재", "내가 왕이될 상인가"); // 3번 데이터 수정
 
 		if (uCount > 0) {
 			System.out.println("[수정되었습니다.]");
@@ -86,7 +87,8 @@ public class AuthorApp {
 		printList(authorList);
 
 		// 작가 삭제
-		authorDao.authorDelete(7); // 3번 데이터 삭제
+		authorDao.authorDelete(10); // 3번 데이터 삭제
+		System.out.println("[삭제되었습니다.]");
 
 		// 리스트 출력
 		authorList = authorDao.getAuthorList(); // DB에서 작가 정보 리스트를 가져온다.

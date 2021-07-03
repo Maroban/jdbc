@@ -29,7 +29,7 @@ public class BookInsertApp {
 			insert += "     ?, ";
 			insert += "     ?, ";
 			insert += "     ? ";
-			insert += " ); ";
+			insert += " ) ";
 
 			pstmt = conn.prepareStatement(insert);
 			pstmt.setString(1, "잘생긴게 최고야!");
