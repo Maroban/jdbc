@@ -13,6 +13,31 @@ public class BookVo {
 
 	// 생성자
 	public BookVo() {
+
+	}
+	
+	public BookVo(int bookId) {
+		this.bookId = bookId;
+	}
+
+	public BookVo(String authorName, String authorDesc) {
+		this.authorName = authorName;
+		this.authorDesc = authorDesc;
+	}
+
+	public BookVo(String title, String pubs, String pubDate, int authorId) {
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+		this.authorId = authorId;
+	}
+	
+	public BookVo(String title, String pubs, String pubDate, int authorId, int bookId) {
+		this.title = title;
+		this.pubs = pubs;
+		this.pubDate = pubDate;
+		this.authorId = authorId;
+		this.bookId = bookId;
 	}
 
 	public BookVo(int bookId, String title, String pubs, String pubDate, int authorId, String authorName,
