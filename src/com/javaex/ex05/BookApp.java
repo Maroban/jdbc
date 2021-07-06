@@ -100,7 +100,13 @@ public class BookApp {
 		
 
 		// Scanner를 통해서 키워드 검색 (like문 사용) // "검색어를 입력해주세요" // "검색어: 문"
-		
+		System.out.println();
+		System.out.println("검색어를 입력해주세요. ");
+		System.out.print("검색어 > ");
+		String keyword = sc.nextLine();
+
+		printList(bookDao.search(keyword));
+		System.out.println();
 		// BookDao.getBookList("문"); -> 메소드 오버로딩 사용 // 검색된 책 정보 출력
 
 		sc.close();

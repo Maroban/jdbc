@@ -251,5 +251,62 @@ public class BookDao {
 
 		return count;
 	}
-	
+
+	// 책 등록
+	public List<BookVo> search(String keyword) {
+
+		List<BookVo> bookList = new ArrayList<BookVo>();
+		// 2번, 4번 메소드
+		this.getConnection();
+
+		try {
+			// 3. SQL문 준비 / 바인딩 / 실행
+			String query = "";
+			query += " SELECT ";
+			query += "     b.book_id, ";
+			query += "     b.title, ";
+			query += "     b.pubs, ";
+			query += "     b.pub_date, ";
+			query += "     b.author_id, ";
+			query += "     a.author_name, ";
+			query += "     a.author_desc ";
+			query += " FROM ";
+			query += "     book    b ";
+			query += "     LEFT OUTER JOIN author  a ON b.author_id = a.author_id ";
+			query += " WHERE ";
+			query += "     ( b.title LIKE '%" + keyword + "%' ";
+			query += "       OR b.pubs LIKE '%" + keyword + "%' ";
+			query += "       OR a.author_name LIKE '%" + keyword + "%' ";
+			query += "       OR a.author_desc LIKE '%" + keyword + "%') ";
+			query += " ORDER BY ";
+			query += "     b.book_id ASC ";
+
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+
+			// 4.결과처리
+			while (rs.next()) {
+				int bookId = rs.getInt("book_id");
+				String title = rs.getString("title");
+				String pubs = rs.getString("pubs");
+				String pubDate = rs.getString("pub_date");
+				int authorId = rs.getInt("author_id");
+				String authorName = rs.getString("author_name");
+				String authorDesc = rs.getString("author_desc");
+
+				BookVo bookVo = new BookVo(bookId, title, pubs, pubDate, authorId, authorName, authorDesc);
+
+				bookList.add(bookVo);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		// 5번 메소드
+		this.close();
+
+		return bookList;
+	}
+
 }
